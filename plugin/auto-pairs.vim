@@ -127,23 +127,23 @@ function! AutoPairsInsert(key)
 
     if !g:AutoPairsFlyMode
       " Skip the character if next character is space
-      if current_char == ' ' && next_char == a:key
-        return s:Right.s:Right
-      end
+      "if current_char == ' ' && next_char == a:key
+      "  return s:Right.s:Right
+      "end
 
       " Skip the character if closed pair is next character
-      if current_char == ''
-        if g:AutoPairsMultilineClose
-          let next_lineno = line('.')+1
-          let next_line = getline(nextnonblank(next_lineno))
-          let next_char = matchstr(next_line, '\s*\zs.')
-        else
-          let next_char = matchstr(line, '\s*\zs.')
-        end
-        if next_char == a:key
-          return "\<ESC>e^a"
-        endif
-      endif
+      "if current_char == ''
+      "  if g:AutoPairsMultilineClose
+      "    let next_lineno = line('.')+1
+      "    let next_line = getline(nextnonblank(next_lineno))
+      "    let next_char = matchstr(next_line, '\s*\zs.')
+      "  else
+      "    let next_char = matchstr(line, '\s*\zs.')
+      "  end
+      "  if next_char == a:key
+      "    return "\<ESC>e^a"
+      "  endif
+      "endif
     endif
 
     " Fly Mode, and the key is closed-pairs, search closed-pair and jump
